@@ -1,0 +1,23 @@
+<%= render 'header' %>
+
+<h1>Login</h1>
+
+<h2 style="color: red"><%= @error_msg %></h2>
+
+<%= form_with model: @user, local: true do |form| %>
+
+  <p>
+    <%= form.label :User %><br>
+    <%= form.text_field :username %>
+  </p>
+
+  <p>
+    <%= form.label :Password %><br>
+    <%= form.password_field :password %>
+  </p>
+
+  <p>
+    <%= form.submit "Login" %>
+  </p>
+
+<% end %>

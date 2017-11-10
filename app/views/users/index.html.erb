@@ -1,0 +1,38 @@
+<%= render 'header' %>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+}</style>
+
+<p>
+  <h1>Users</h1>
+  <br>
+  <p>
+    <table>
+      <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>User Name</td>
+        <td>EMail</td>
+        <td>Last Login</td>
+      </tr>
+      <% @entries.each do |user| %>
+        <tr>
+          <td><%= user[:givenName][0] %></td>
+          <td><%= user[:sn][0] %></td>
+          <td><%= user[:sAMAccountName][0] %></td>
+          <td><%= user[:mail][0] %></td>
+          <td><%= user[:lastlogon][0] %></td>
+        </tr>
+      <%end %>
+    </table>
+  </p>
+  <%= link_to 'Articles', articles_path %>
+  <%= link_to 'My Account', "/users/#{@session[:current_user_id]}" %>
+  <%= link_to 'Logout', "/logout" %>
+</p>
